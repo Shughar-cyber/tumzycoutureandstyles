@@ -64,7 +64,7 @@ const DesignDetails = () => {
       {/* Back Link */}
       <Link
         to="/collections"
-        className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-cream/60 hover:text-rose-gold transition-colors group mb-8"
+        className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-cream/60 hover:text-rose-gold transition-colors group mb-8 relative z-10 w-fit cursor-pointer"
       >
         <HiOutlineArrowLeft className="group-hover:-translate-x-1 transition-transform" />
         Back to Collections

@@ -27,7 +27,7 @@ const values = [
 ];
 
 const About = () => (
-  <div className="overflow-hidden py-16">
+  <div className="overflow-hidden pt-28 pb-16">
     <div className="max-w-6xl mx-auto px-5 md:px-8">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-20">
