@@ -50,7 +50,7 @@ const Collections = () => {
   );
 
   return (
-    <div className="max-w-7xl mx-auto px-5 md:px-8 py-20 min-h-[80vh]">
+    <div className="max-w-7xl mx-auto px-5 md:px-8 pt-28 pb-20 min-h-[80vh]">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -98,7 +98,7 @@ const Collections = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search silhouettes & fabrics..."
-            className="w-full bg-charcoal/40 border border-gold/20 focus:border-rose-gold/60 text-xs px-4 py-3 rounded-full focus:outline-none transition-all duration-300 placeholder:text-cream/35 focus:shadow-[0_0_15px_rgba(226,180,183,0.15)] text-cream"
+            className="w-full bg-charcoal/40 border focus:border-rose-gold/60 text-xs px-4 py-3 rounded-full focus:outline-none transition-all duration-300 placeholder:text-cream/35 focus:shadow-[0_0_15px_rgba(226,180,183,0.15)]"
           />
         </div>
       </div>

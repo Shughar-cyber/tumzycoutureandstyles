@@ -87,7 +87,7 @@ const Home = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[92vh] flex items-center justify-center text-center overflow-hidden py-24">
+      <section className="relative min-h-[92vh] flex items-center justify-center text-center overflow-hidden pt-32 pb-24">
         {/* Feminine Couture Hero Background Image */}
         <motion.img
           initial={{ scale: 1.15, opacity: 0 }}

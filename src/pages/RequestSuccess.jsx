@@ -34,7 +34,7 @@ const RequestSuccess = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
-    <div className="max-w-2xl mx-auto px-5 py-24 text-center">
+    <div className="max-w-2xl mx-auto px-5 pt-32 pb-24 text-center">
       {/* Success Icon */}
       <div className="relative inline-block mb-6">
         <FaCheckCircle className="text-gold text-6xl mx-auto" />

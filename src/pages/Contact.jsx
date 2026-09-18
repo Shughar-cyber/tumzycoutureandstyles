@@ -33,7 +33,7 @@ const contactMethods = [
 ];
 
 const Contact = () => (
-  <div className="max-w-5xl mx-auto px-5 md:px-8 py-20">
+  <div className="max-w-5xl mx-auto px-5 md:px-8 pt-28 pb-20">
     <div className="text-center max-w-2xl mx-auto mb-16">
       <div className="inline-flex items-center gap-2 border border-rose-gold/30 bg-rose-gold/5 px-4 py-1.5 rounded-full mb-6">
         <span className="text-rose-gold text-xs">✦</span>
