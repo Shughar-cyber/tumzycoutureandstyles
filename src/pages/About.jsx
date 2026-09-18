@@ -59,7 +59,9 @@ const About = () => (
               <p className="text-gold text-xs uppercase tracking-widest font-semibold mb-1">Our Philosophy</p>
               <p className="text-cream/80 text-xs font-light">"We believe every woman deserves to wear something made just for her."</p>
             </div>
+            
           </div>
+
         </div>
 
         <div className="md:col-span-6 space-y-6 md:pl-6">

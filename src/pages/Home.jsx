@@ -108,6 +108,7 @@ const Home = () => {
         <span className="absolute top-1/3 right-[12%] text-rose-gold/30 text-lg animate-sparkle pointer-events-none hidden lg:block">✦</span>
         
         <div className="relative z-10 max-w-4xl px-5">
+          
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -119,6 +120,7 @@ const Home = () => {
             <span className="text-rose-gold text-xs">✦</span>
           </motion.div>
           
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
