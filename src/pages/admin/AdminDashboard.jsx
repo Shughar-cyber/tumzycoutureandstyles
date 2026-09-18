@@ -122,6 +122,19 @@ const AdminDashboard = () => {
     );
   }
 
+  if (!data || !data.stats) {
+    return (
+      <div className="p-8 text-center text-cream">
+        <HiOutlineRefresh className="mx-auto text-4xl text-red-400 mb-4" />
+        <h2 className="text-xl font-bold mb-2">Failed to load dashboard data</h2>
+        <p className="text-cream/50 mb-6">Your session might have expired, or the server blocked the request due to cross-site cookie settings on your mobile device.</p>
+        <button onClick={() => window.location.reload()} className="px-6 py-2 bg-gold/10 text-gold border border-gold/20 rounded hover:bg-gold hover:text-black transition-colors">
+          Refresh Page
+        </button>
+      </div>
+    );
+  }
+
   const { stats, recentRequests } = data;
 
   const statItems = [
