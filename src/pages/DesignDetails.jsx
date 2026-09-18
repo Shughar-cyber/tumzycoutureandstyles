@@ -60,7 +60,7 @@ const DesignDetails = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-5 md:px-8 py-16">
+    <div className="max-w-7xl mx-auto px-5 md:px-8 pt-28 pb-16">
       {/* Back Link */}
       <Link
         to="/collections"
