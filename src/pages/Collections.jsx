@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import SEO from "../components/SEO.jsx";
 import { fetchDesigns, fetchCategories } from "../api/designs.js";
 import DesignCard from "../components/DesignCard.jsx";
 import SkeletonCard from "../components/SkeletonCard.jsx";
@@ -51,6 +52,11 @@ const Collections = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-5 md:px-8 pt-28 pb-20 min-h-[80vh]">
+      <SEO 
+        title="Collections" 
+        description="Explore handcrafted bespoke womenswear, sculpted corset gowns, and regal African couture."
+        url="https://tumzy-couture.vercel.app/collections"
+      />
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

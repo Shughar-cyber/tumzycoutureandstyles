@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "../components/SEO.jsx";
 import { fetchDesigns } from "../api/designs.js";
 import DesignCard from "../components/DesignCard.jsx";
 import SkeletonCard from "../components/SkeletonCard.jsx";
@@ -86,6 +87,10 @@ const Home = () => {
 
   return (
     <div className="overflow-hidden">
+      <SEO 
+        title="Home" 
+        url="https://tumzy-couture.vercel.app/" 
+      />
       {/* Hero Section */}
       <section className="relative min-h-[92vh] flex items-center justify-center text-center overflow-hidden pt-32 pb-24">
         {/* Feminine Couture Hero Background Image */}

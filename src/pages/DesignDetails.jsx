@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import SEO from "../components/SEO.jsx";
 import { fetchDesignByIdOrSlug } from "../api/designs.js";
 import EmptyState from "../components/EmptyState.jsx";
 import { HiOutlineArrowLeft, HiOutlineSparkles, HiOutlinePlay } from "react-icons/hi";
@@ -61,6 +62,12 @@ const DesignDetails = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-5 md:px-8 pt-28 pb-16">
+      <SEO 
+        title={design.name} 
+        description={design.description}
+        image={design.mainImage?.url}
+        url={`https://tumzy-couture.vercel.app/design/${design.slug}`}
+      />
       {/* Back Link */}
       <Link
         to="/collections"

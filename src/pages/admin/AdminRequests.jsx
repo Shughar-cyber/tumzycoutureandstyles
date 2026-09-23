@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { fetchAdminRequests, updateRequestStatus } from "../../api/admin.js";
+import { fetchAdminRequests, updateRequestStatus, deleteRequest } from "../../api/admin.js";
 import toast from "react-hot-toast";
 
 const STATUSES = ["New", "Contacted", "Confirmed", "In Progress", "Completed", "Cancelled"];
@@ -49,6 +49,18 @@ const AdminRequests = () => {
       toast.error(err.response?.data?.message || "Failed to update status");
     } finally {
       setUpdatingId(null);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this request? This cannot be undone.")) return;
+    
+    try {
+      await deleteRequest(id);
+      toast.success("Request deleted");
+      loadRequests();
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Failed to delete request");
     }
   };
 
@@ -123,13 +135,19 @@ const AdminRequests = () => {
                       ))}
                     </select>
                   </td>
-                  <td className="p-4 sm:px-6 text-right whitespace-nowrap">
+                  <td className="p-4 sm:px-6 text-right whitespace-nowrap space-x-2">
                     <Link 
                       to={`/admin/requests/${r._id}`} 
                       className="inline-block border border-gold/40 text-gold px-4 py-2 rounded-lg text-xs hover:bg-gold hover:text-black transition-all font-medium shadow-sm"
                     >
                       Manage
                     </Link>
+                    <button
+                      onClick={() => handleDelete(r._id)}
+                      className="inline-block border border-red-500/40 text-red-400 px-4 py-2 rounded-lg text-xs hover:bg-red-500 hover:text-white transition-all font-medium shadow-sm"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}

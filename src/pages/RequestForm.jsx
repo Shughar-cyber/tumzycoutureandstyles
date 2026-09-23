@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import SEO from "../components/SEO.jsx";
 import toast from "react-hot-toast";
 import { fetchDesignByIdOrSlug } from "../api/designs.js";
 import { submitRequest } from "../api/requests.js";
@@ -106,6 +107,8 @@ const RequestForm = () => {
       }
 
       const data = await submitRequest(formData);
+
+
       navigate("/request-success", { state: { request: data.request } });
     } catch (err) {
       toast.error(err.response?.data?.message || "Something went wrong. Please try again.");
@@ -129,6 +132,12 @@ const RequestForm = () => {
 
   return (
     <div className="max-w-3xl mx-auto px-5 md:px-8 pt-28 pb-16">
+      <SEO 
+        title={`Request ${design.name}`}
+        description={`Submit your bespoke measurements and styling preferences for the ${design.name}.`}
+        image={design.mainImage?.url}
+        url={`https://tumzy-couture.vercel.app/request/${design.slug}`}
+      />
       <div className="text-center mb-10">
         <p className="text-gold text-xs uppercase tracking-widest mb-3">Custom Request</p>
         <h1 className="font-display text-4xl text-cream">Request This Design</h1>

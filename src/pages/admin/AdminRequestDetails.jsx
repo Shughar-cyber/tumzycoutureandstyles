@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { fetchAdminRequestById, updateRequestStatus } from "../../api/admin.js";
+import { fetchAdminRequestById, updateRequestStatus, deleteRequest } from "../../api/admin.js";
 import { HiOutlineArrowLeft } from "react-icons/hi";
 
 const STATUSES = ["New", "Contacted", "Confirmed", "In Progress", "Completed", "Cancelled"];
@@ -16,6 +16,7 @@ const Field = ({ label, value }) =>
 
 const AdminRequestDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [request, setRequest] = useState(null);
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState(false);
@@ -43,6 +44,17 @@ const AdminRequestDetails = () => {
     }
   };
 
+  const handleDelete = async () => {
+    if (!window.confirm("Are you sure you want to delete this request? This cannot be undone.")) return;
+    try {
+      await deleteRequest(id);
+      toast.success("Request deleted");
+      navigate("/admin/requests");
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Failed to delete request");
+    }
+  };
+
   if (loading) return <p className="text-cream/50">Loading request...</p>;
   if (!request) return <p className="text-cream/50">Request not found.</p>;
 
@@ -63,18 +75,26 @@ const AdminRequestDetails = () => {
         Request #{request.requestNumber}
       </h1>
 
-      <div className="mb-8 p-6 rounded-xl border border-gold/15 bg-charcoal/40 backdrop-blur-md shadow-xl">
-        <label className="block text-[10px] sm:text-xs uppercase tracking-widest text-cream/50 mb-3 font-semibold">Update Request Status</label>
-        <select
-          value={request.status}
-          onChange={handleStatusChange}
-          disabled={updating}
-          className="bg-[#0a080b]/80 border border-gold/30 text-gold text-sm px-4 py-2.5 rounded-lg focus:outline-none focus:ring-1 focus:ring-gold/50 shadow-inner w-full sm:w-auto min-w-50"
+      <div className="mb-8 p-6 rounded-xl border border-gold/15 bg-charcoal/40 backdrop-blur-md shadow-xl flex flex-col sm:flex-row gap-4 items-start sm:items-end justify-between">
+        <div>
+          <label className="block text-[10px] sm:text-xs uppercase tracking-widest text-cream/50 mb-3 font-semibold">Update Request Status</label>
+          <select
+            value={request.status}
+            onChange={handleStatusChange}
+            disabled={updating}
+            className="bg-[#0a080b]/80 border border-gold/30 text-gold text-sm px-4 py-2.5 rounded-lg focus:outline-none focus:ring-1 focus:ring-gold/50 shadow-inner w-full sm:w-auto min-w-50"
+          >
+            {STATUSES.map((s) => (
+              <option key={s} value={s}>{s}</option>
+            ))}
+          </select>
+        </div>
+        <button
+          onClick={handleDelete}
+          className="border border-red-500/40 bg-red-500/10 text-red-400 px-6 py-2.5 rounded-lg text-xs hover:bg-red-500 hover:text-white transition-all font-medium shadow-sm w-full sm:w-auto"
         >
-          {STATUSES.map((s) => (
-            <option key={s} value={s}>{s}</option>
-          ))}
-        </select>
+          Delete Request
+        </button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8">

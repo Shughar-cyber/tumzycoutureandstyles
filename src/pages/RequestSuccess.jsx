@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation, Link, Navigate } from "react-router-dom";
+import SEO from "../components/SEO.jsx";
 import { FaCheckCircle, FaWhatsapp } from "react-icons/fa";
 
 const WHATSAPP_NUMBER = "2348167473144";
@@ -35,6 +36,7 @@ const RequestSuccess = () => {
 
   return (
     <div className="max-w-2xl mx-auto px-5 pt-32 pb-24 text-center">
+      <SEO title="Request Successful" />
       {/* Success Icon */}
       <div className="relative inline-block mb-6">
         <FaCheckCircle className="text-gold text-6xl mx-auto" />

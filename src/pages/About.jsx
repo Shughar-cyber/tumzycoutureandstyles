@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "../components/SEO.jsx";
 import bossImg from "../assets/boss.jpg.jpg";
 
 const values = [
@@ -28,6 +29,11 @@ const values = [
 
 const About = () => (
   <div className="overflow-hidden pt-28 pb-16">
+    <SEO 
+      title="About Us" 
+      description="Tumzy Couture and Styles was created out of a love for fashion and a desire to help women look and feel their best."
+      url="https://tumzy-couture.vercel.app/about"
+    />
     <div className="max-w-6xl mx-auto px-5 md:px-8">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-20">

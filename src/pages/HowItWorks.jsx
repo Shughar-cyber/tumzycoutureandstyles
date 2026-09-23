@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO.jsx";
 import { HiOutlineSparkles, HiOutlineHeart, HiOutlineScissors, HiOutlineCalendar, HiOutlineCheck } from "react-icons/hi";
 import { FaWhatsapp, FaInstagram, FaTiktok } from "react-icons/fa";
 
@@ -39,6 +40,11 @@ const guarantees = [
 
 const HowItWorks = () => (
   <div className="max-w-6xl mx-auto px-5 md:px-8 pt-28 pb-20">
+    <SEO 
+      title="How It Works" 
+      description="From initial inspiration to your final fitting, our bespoke tailoring experience is seamless, personalized, and unforgettable."
+      url="https://tumzy-couture.vercel.app/how-it-works"
+    />
     <div className="text-center max-w-2xl mx-auto mb-20">
       <div className="inline-flex items-center gap-2 border border-rose-gold/30 bg-rose-gold/5 px-4 py-1.5 rounded-full mb-6">
         <span className="text-rose-gold text-xs">✦</span>

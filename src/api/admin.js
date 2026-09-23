@@ -46,3 +46,6 @@ export const fetchAdminRequestById = (id) =>
 
 export const updateRequestStatus = (id, status) =>
   api.patch(`/admin/requests/${id}`, { status }).then((res) => res.data);
+
+export const deleteRequest = (id) =>
+  api.delete(`/admin/requests/${id}`).then((res) => res.data);

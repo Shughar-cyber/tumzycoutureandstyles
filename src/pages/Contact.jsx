@@ -1,5 +1,6 @@
 import React from "react";
 import { FaPhone, FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaTiktok } from "react-icons/fa";
+import SEO from "../components/SEO.jsx";
 
 const contactMethods = [
   { 
@@ -34,6 +35,11 @@ const contactMethods = [
 
 const Contact = () => (
   <div className="max-w-5xl mx-auto px-5 md:px-8 pt-28 pb-20">
+    <SEO 
+      title="Contact Us" 
+      description="Connect with our stylists. Whether you have questions about our capsule silhouettes, fabric selections, or custom measurement booking."
+      url="https://tumzy-couture.vercel.app/contact"
+    />
     <div className="text-center max-w-2xl mx-auto mb-16">
       <div className="inline-flex items-center gap-2 border border-rose-gold/30 bg-rose-gold/5 px-4 py-1.5 rounded-full mb-6">
         <span className="text-rose-gold text-xs">✦</span>
